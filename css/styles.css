@@ -369,6 +369,67 @@ section {
   background: #15803d;
 }
 
+/* =====================
+    CARROUSEL
+====================== */
+.carousel-section {
+  background: var(--bg-light);
+  padding: 80px 0;
+}
+
+.carousel-section h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--text-dark);
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;              /* mismo radio que tus cards */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: var(--text-dark);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+
+
 
 /* =====================
    FOOTER
@@ -448,12 +509,33 @@ section {
     flex-direction: column;
     gap: 20px;
     padding: 80px 24px;
-    transition: right 0.3s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    opacity: 0;
+    transform: translateX(-12px);
+    pointer-events: none;
+
+ 
+
     z-index: 1001;
   }
 
   .nav-menu.show {
-    right: 0;
+    left: 0;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .carousel-slide img {
+    height: 260px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
   }
 }
 
