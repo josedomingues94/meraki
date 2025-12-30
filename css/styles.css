@@ -10,11 +10,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #0c0a09;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #1f2933;
+  color: #ffd700;
   line-height: 1.6;
 }
 
@@ -75,7 +76,7 @@ section {
 }
 
 .nav-menu a:hover {
-  color: #16a34a;
+  color: #ffd700;
 }
 
 .menu-toggle {
@@ -153,7 +154,7 @@ section {
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0.45)
     ),
-    url("../assets/img/hero.jpg") center / cover no-repeat;
+    url("../assets/img/logo.jpg") center / cover no-repeat;
   color: #ffffff;
   padding-top: 70px;
 }
@@ -207,7 +208,7 @@ section {
 
 #servicios h2 {
   font-size: 2.2rem;
-  color: #111827;
+  color: #ffd700;
 }
 
 #servicios p {
