@@ -442,6 +442,50 @@ section {
   padding: 30px 0;
 }
 
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* =====================
+   BUTTON TO UP
+===================== */
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #111827;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-2px);
+}
+
+
+
 /* =====================
    NAV ACTIVE LINK
 ===================== */
