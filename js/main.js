@@ -69,27 +69,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  const form = document.getElementById("contact-form");
 
-  fetch("https://script.google.com/macros/s/AKfycbz46z1vc3GldEIoVRQiAfVvZqQHH4pr_xCPEtZK4M1lAaIgcBLVUovjDevc32tgpJYipw/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  },
-  body: new URLSearchParams({
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value
+  if (!form) {
+    console.warn("Formulario no encontrado");
+    return;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch("https://script.google.com/macros/s/AKfycbz46z1vc3GldEIoVRQiAfVvZqQHH4pr_xCPEtZK4M1lAaIgcBLVUovjDevc32tgpJYipw/exec", {
+      method: "POST", headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: new URLSearchParams({
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value})
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("Mensaje enviado correctamente ✅");
+      form.reset();
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Error al enviar ❌");
+    });
+
   })
-})
-.then(res => res.json())
-.then(data => {
-  alert("Mensaje enviado correctamente ✅");
-  form.reset();
-})
-.catch(err => {
-  console.error(err);
-  alert("Error al enviar ❌");
-});
+
+
+  
 
 
 });
