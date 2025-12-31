@@ -79,22 +79,26 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    fetch("https://script.google.com/macros/s/AKfycbz46z1vc3GldEIoVRQiAfVvZqQHH4pr_xCPEtZK4M1lAaIgcBLVUovjDevc32tgpJYipw/exec", {
-      method: "POST", headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      body: new URLSearchParams({
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value})
-    })
-    .then(res => res.json())
-    .then(data => {
-      alert("Mensaje enviado correctamente ✅");
-      form.reset();
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Error al enviar ❌");
-    });
+    fetch("https://script.google.com/macros/s/AKfycbx-yvZv0jwWr11C7nwEvmhYpN13m2VqTwz08_nj3BvDpEluLLAaRQf1DGS0YL24fGoT9w/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: new URLSearchParams({
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  })
+})
+.then(res => res.json())
+.then(() => {
+  alert("Mensaje enviado correctamente ✅");
+  form.reset();
+})
+.catch(err => {
+  console.error(err);
+  alert("Error al enviar ❌");
+});
 
   })
 
