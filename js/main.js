@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    fetch("https://script.google.com/macros/s/AKfycbx-yvZv0jwWr11C7nwEvmhYpN13m2VqTwz08_nj3BvDpEluLLAaRQf1DGS0YL24fGoT9w/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzrjM5LqFrfKnDikhqbE9By9m6KB35VpBn33CI-Z7pfBdhCYzRJG9NsOoMU8VbU2LFsng/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded"
