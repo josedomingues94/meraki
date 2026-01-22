@@ -1,6 +1,12 @@
 /* =====================
    RESET + BASE
 ===================== */
+:root {
+  --black: #0B0B0F;
+  --purple: #3B1C5A;
+  --gold: #C9A36A;
+  --white: #F2F2F2;
+}
 
 * {
   margin: 0;
@@ -8,15 +14,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: #0c0a09;
-}
-
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #ffd700;
-  line-height: 1.6;
+  background: linear-gradient(180deg, var(--black), var(--purple));
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
 }
 
 /* =====================
@@ -25,7 +26,7 @@ body {
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 }
 
@@ -145,55 +146,39 @@ section {
 /* =====================
    HERO PRO
 ===================== */
-
 .hero {
   min-height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
-    ),
-    url("../assets/img/logo.jpg") center / cover no-repeat;
-  color: #ffffff;
-  padding-top: 70px;
-}
-
-.hero-content {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: 3.2rem;
-  max-width: 700px;
-  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: var(--gold);
 }
 
-.hero-subtitle {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #e5e7eb;
+.hero p {
+  margin: 20px 0;
+  opacity: .85;
 }
 
-.hero-cta {
-  margin-top: 35px;
-}
-
+/* BUTTON */
 .btn-primary {
-  display: inline-block;
-  padding: 14px 36px;
-  background: #16a34a;
-  color: #ffffff;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 14px 32px;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  border-radius: 30px;
+  transition: .3s;
+  background: transparent;
 }
 
 .btn-primary:hover {
-  background: #15803d;
+  background: var(--gold);
+  color: #000;
 }
 
 
@@ -257,7 +242,7 @@ section {
    VENTAJAS / CONFIANZA
 ===================== */
 
-.section.light {
+.section .light {
   background: #f9fafb;
 }
 
@@ -387,8 +372,11 @@ section {
 .carousel {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;              /* mismo radio que tus cards */
+  border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 800px; /* ancho máximo centrado */
+  margin: auto;      /* centrado horizontal */
 }
 
 .carousel-track {
@@ -397,38 +385,48 @@ section {
 }
 
 .carousel-slide {
-  min-width: 100%;
+  min-width: 100%;  /* solo 1 imagen visible */
+  display: flex;
+  justify-content: center; /* centra la imagen */
 }
 
 .carousel-slide img {
   width: 100%;
   height: 420px;
   object-fit: cover;
-  display: block;
+  border-radius: 20px;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
-  color: var(--text-dark);
-  border: none;
+  background: transparent;       /* fondo transparente */
+  color: #fff;                  /* color de la flecha, puedes cambiar */
+  border: 2px solid #fff;       /* borde visible */
   width: 42px;
   height: 42px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 1.6rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
 }
 
 .carousel-btn:hover {
+  background: rgba(255,255,255,0.1); /* ligera transición al hover */
   transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-btn.prev { left: 16px; }
 .carousel-btn.next { right: 16px; }
+
+
+
 
 
 
@@ -598,4 +596,20 @@ section {
 .menu-overlay.show {
   opacity: 1;
   pointer-events: all;
+}
+
+
+
+/* ANIMACIONES */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
