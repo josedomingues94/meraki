@@ -1,8 +1,3 @@
-// ===== MENÚ MÓVIL =====
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
-const overlay = document.querySelector(".menu-overlay");
-const navLinks = document.querySelectorAll(".nav-menu a");
 const carousel = document.querySelector(".carousel");
 const track = carousel.querySelector(".carousel-track");
 const slides = Array.from(track.children);
