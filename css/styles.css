@@ -6,6 +6,12 @@
   --purple: #3B1C5A;
   --gold: #C9A36A;
   --white: #F2F2F2;
+  --meraki-gold: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5e7a3,
+    #b8962e
+  );
 }
 
 * {
@@ -18,27 +24,40 @@ body {
   background: linear-gradient(180deg, var(--black), var(--purple));
   color: var(--white);
   font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+h1,h2,h3 {
+  background: var(--meraki-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+a{
+  color: var(--gold);
+  font-size: 0.55rem;
+  line-height: 1rem;
 }
 
 /* =====================
    UTILIDADES
 ===================== */
-
 .container {
+  padding-top: 20px;
   width: 90%;
   max-width: 1100px;
   margin: auto;
 }
 
-section {
-  padding: 100px 0;
+.section {
+  padding: 30px 0;
   scroll-margin-top: 80px;
 }
 
 /* =====================
-   HEADER / NAV
+   HEADER
 ===================== */
-
 .site-header {
   position: fixed;
   top: 0;
@@ -48,116 +67,39 @@ section {
   z-index: 1000;
 }
 
-.nav {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
 .logo {
   font-weight: 700;
   text-decoration: none;
   color: #111827;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #374151;
-  font-weight: 500;
-}
-
-.nav-menu a:hover {
-  color: #ffd700;
-}
-
-.menu-toggle {
-  display: none;
-  width: 32px;
-  height: 24px;
-  position: relative;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.menu-toggle span {
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background: #111827;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle span:nth-child(1) {
-  top: 0;
-}
-
-.menu-toggle span:nth-child(2) {
-  top: 10px;
-}
-
-.menu-toggle span:nth-child(3) {
-  top: 20px;
-}
-
-/* Estado activo (X) */
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 10px;
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 10px;
-}
-
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-}
-
-.menu-overlay.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-
 /* =====================
-   HERO PRO
+   HERO – ULTRA LUXURY
 ===================== */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(212,175,55,0.12),
+    transparent 60%
+  );
+  pointer-events: none;
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: var(--gold);
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+  max-width: 520px;
+  opacity: 0.9;
 }
 
 .hero p {
@@ -165,27 +107,28 @@ section {
   opacity: .85;
 }
 
-/* BUTTON */
+/* =====================
+   CTA – CONVERSIÓN
+===================== */
 .btn-primary {
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 30px;
-  transition: .3s;
-  background: transparent;
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5e7a3,
+    #b8962e
+  );
+  color: #0c0a09;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.25);
 }
 
 .btn-primary:hover {
-  background: var(--gold);
-  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(212,175,55,0.35);
 }
 
-
 /* =====================
-   SERVICIOS
+   SERVICIOS Y VENTAJAS
 ===================== */
-
 #servicios header {
   text-align: center;
   margin-bottom: 50px;
@@ -207,20 +150,6 @@ section {
   gap: 30px;
 }
 
-.service-card {
-  background: #ffffff;
-  padding: 30px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-}
-
 .service-card .icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -237,49 +166,22 @@ section {
   line-height: 1.5;
 }
 
-
-/* =====================
-   VENTAJAS / CONFIANZA
-===================== */
-
-.section .light {
-  background: #f9fafb;
+.service-card,
+.advantage-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(212,175,55,0.15);
 }
 
-#ventajas header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-#ventajas h2 {
-  font-size: 2.2rem;
-  color: #111827;
-}
-
-#ventajas p {
-  color: #4b5563;
-  margin-top: 10px;
+.service-card:hover,
+.advantage-card:hover {
+  border-color: rgba(212,175,55,0.35);
 }
 
 .advantages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin-top: 40px;
-}
-
-.advantage-card {
-  background: #ffffff;
-  padding: 25px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.advantage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .adv-icon {
@@ -298,11 +200,9 @@ section {
   line-height: 1.5;
 }
 
-
 /* =====================
    CONTACTO
 ===================== */
-
 #contacto header {
   text-align: center;
   margin-bottom: 40px;
@@ -342,7 +242,7 @@ section {
 
 .contact-form button {
   padding: 14px 36px;
-  background: #16a34a;
+  background: var(--gold);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -352,7 +252,7 @@ section {
 }
 
 .contact-form button:hover {
-  background: #15803d;
+  background: var(--meraki-gold);
 }
 
 /* =====================
@@ -360,7 +260,7 @@ section {
 ====================== */
 .carousel-section {
   background: var(--bg-light);
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 .carousel-section h2 {
@@ -402,8 +302,8 @@ section {
   top: 50%;
   transform: translateY(-50%);
   background: transparent;       /* fondo transparente */
-  color: #fff;                  /* color de la flecha, puedes cambiar */
-  border: 2px solid #fff;       /* borde visible */
+  color: var(--gold);                  /* color de la flecha, puedes cambiar */
+  border: 2px solid var(--gold);       /* borde visible */
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -425,18 +325,10 @@ section {
 .carousel-btn.prev { left: 16px; }
 .carousel-btn.next { right: 16px; }
 
-
-
-
-
-
 /* =====================
    FOOTER
 ===================== */
-
 .site-footer {
-  background: #111827;
-  color: #ffffff;
   text-align: center;
   padding: 30px 0;
 }
@@ -449,7 +341,6 @@ section {
 /* =====================
    BUTTON TO UP
 ===================== */
-
 #scrollTopBtn {
   position: fixed;
   bottom: 24px;
@@ -458,17 +349,14 @@ section {
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: white;
+  background: var(--gold);
   color: #111827;
   font-size: 1.4rem;
   cursor: pointer;
-
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
-
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 }
@@ -483,92 +371,40 @@ section {
   transform: translateY(-2px);
 }
 
-
+/* ============
+ANIMACIONES 
+==============*/
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
 
 /* =====================
-   NAV ACTIVE LINK
+   MICRO ANIMACIONES
 ===================== */
-
-.nav-menu a.active {
-  color: #16a34a;
-  font-weight: 600;
-  position: relative;
+.section {
+  animation: fadeUp 0.8s ease both;
 }
 
-.nav-menu a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #16a34a;
-  border-radius: 2px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 /* =====================
    RESPONSIVE
 ===================== */
-/* BOTÓN HAMBURGUESA */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  width: 32px;
-  height: 24px;
-  position: relative;
-  cursor: pointer;
-  z-index: 1002;
-}
-
-.menu-toggle span {
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background: #111827;
-  left: 0;
-  transition: 0.3s;
-}
-
-.menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 10px; }
-.menu-toggle span:nth-child(3) { top: 20px; }
-
 /* MENÚ MÓVIL */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -260px;
-    width: 260px;
-    height: 100vh;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 80px 24px;
-    transition:
-      opacity 0.2s ease,
-      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-
-    opacity: 0;
-    transform: translateX(-12px);
-    pointer-events: none;
-
- 
-
-    z-index: 1001;
-  }
-
-  .nav-menu.show {
-    left: 0;
-    transform: translateX(0);
-    pointer-events: auto;
+  .carousel-slide img{
+    height: 260px;
   }
 
   .carousel-slide img {
@@ -579,37 +415,5 @@ section {
     width: 36px;
     height: 36px;
     font-size: 1.3rem;
-  }
-}
-
-/* OVERLAY */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-  z-index: 1000;
-}
-
-.menu-overlay.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-
-
-/* ANIMACIONES */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
