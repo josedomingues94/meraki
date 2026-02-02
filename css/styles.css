@@ -161,7 +161,7 @@ a{
 }
 
 .service-card p {
-  color: #4b5563;
+  color: var(--white);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -195,7 +195,7 @@ a{
 }
 
 .advantage-card p {
-  color: #4b5563;
+  color: var(--white);
   font-size: 0.95rem;
   line-height: 1.5;
 }
