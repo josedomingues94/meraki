@@ -1,8 +1,32 @@
 const carousel = document.querySelector(".carousel");
 const track = carousel.querySelector(".carousel-track");
-const slides = Array.from(track.children);
 const nextBtn = carousel.querySelector(".carousel-btn.next");
 const prevBtn = carousel.querySelector(".carousel-btn.prev");
+
+// ARRAY DE IMÁGENES
+const images = [
+  "assets/img/meraki.jpg",
+  "assets/img/machine1.jpg",
+  "assets/img/machine2.JPG",
+  "assets/img/machine3.JPG",
+  "assets/img/machine4.jpg"
+];
+
+// Crear slides dinámicamente
+images.forEach((src, index) => {
+  const slide = document.createElement("div");
+  slide.classList.add("carousel-slide");
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = "Instalación " + (index + 1);
+
+  slide.appendChild(img);
+  track.appendChild(slide);
+});
+
+// IMPORTANTE → seleccionar slides después de crearlos
+const slides = track.querySelectorAll(".carousel-slide");
 
 let index = 0;
 
@@ -19,7 +43,6 @@ prevBtn.addEventListener("click", () => {
   index = (index - 1 + slides.length) % slides.length;
   updateCarousel();
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
