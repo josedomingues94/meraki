@@ -200,6 +200,11 @@ a{
   line-height: 1.5;
 }
 
+.sobre-nosotros-box {
+  max-width: 600px;
+  text-align: center;
+}
+
 /* =====================
    CONTACTO
 ===================== */
