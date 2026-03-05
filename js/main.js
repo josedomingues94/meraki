@@ -8,8 +8,7 @@ const images = [
   "assets/img/meraki.jpg",
   "assets/img/machine1.jpg",
   "assets/img/machine2.JPG",
-  "assets/img/machine3.JPG",
-  "assets/img/machine4.jpg"
+  "assets/img/machine3.JPG"
 ];
 
 // Crear slides dinámicamente
